@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/white"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="-28dp"
+    tools:layout_editor_absoluteY="10dp">
 
     <TextView
         android:id="@+id/lbLabNumber"
@@ -15,6 +18,7 @@
         android:layout_marginEnd="1dp"
         android:text="@string/lab_01"
         android:textAlignment="center"
+        android:textColor="@color/design_default_color_primary"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +37,10 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/white"
+        />
 
     <ImageView
         android:id="@+id/imageView"
@@ -54,10 +61,11 @@
         android:id="@+id/lbStudentName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/my_name"
-        android:textSize="16sp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/design_default_color_primary_variant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbLabNumber" />
 
@@ -65,10 +73,24 @@
         android:id="@+id/lbStudentCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="124dp"
         android:text="@string/b2005853"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbStudentName" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="152dp"
+        android:layout_height="157dp"
+        android:layout_marginStart="16dp"
+        app:circularflow_defaultRadius="@dimen/cardview_default_radius"
+        app:circularflow_radiusInDP="90"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbLabNumber"
+        app:srcCompat="@drawable/student_avatar"
+        android:importantForAccessibility="no" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
