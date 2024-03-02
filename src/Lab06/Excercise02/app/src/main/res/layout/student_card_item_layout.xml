@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:elevation="8dp"
+    android:paddingTop="20dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:id="@+id/idLLCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--        Student Name-->
+            <TextView
+                android:id="@+id/txtViewStudentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="@integer/material_motion_duration_long_1"
+                android:padding="8dp"
+                android:text="Nguyen Van A"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,InefficientWeight" />
+
+            <!-- Edit Button -->
+            <ImageButton
+                android:id="@+id/btnEditStudentInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Edit student info"
+                android:src="@drawable/ic_edit"
+
+                tools:ignore="HardcodedText" />
+            <!-- Delete Button -->
+            <ImageButton
+                android:id="@+id/btnDeleteStudentInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:contentDescription="Delete student info"
+                android:src="@drawable/ic_delete"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+
+
+        <!--        Student Id -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtViewStudentId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="B2005853"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+            <!--text view for our course description-->
+            <TextView
+                android:id="@+id/txtViewStudentClassName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="M01"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtViewStudentGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="Male"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/txtViewStudentBirthDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="17/10/2002"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/txtViewStudentEnglishStatus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="textEnd"
+            android:padding="8dp"
+            android:text="Complete basic course"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
