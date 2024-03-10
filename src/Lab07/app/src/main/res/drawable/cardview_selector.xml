@@ -1,0 +1,21 @@
+<!-- card_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed state -->
+    <item android:state_pressed="true">
+        <ripple android:color="?android:attr/selectableItemBackground">
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/darker_gray" /> <!-- Default background color -->
+                    <corners android:radius="8dp" /> <!-- Adjust the radius as needed -->
+                </shape>
+            </item>
+        </ripple>
+    </item>
+    <!-- Default state -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" /> <!-- Default background color -->
+            <corners android:radius="8dp" /> <!-- Adjust the radius as needed -->
+        </shape>
+    </item>
+</selector>
