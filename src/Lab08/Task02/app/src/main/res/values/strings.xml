@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Task02</string>
+    <string name="enter_course_name">Enter course Name</string>
+    <string name="enter_course_duration">Enter Course Duration</string>
+    <string name="enter_course_tracks">Enter Course Tracks</string>
+    <string name="enter_course_description">Enter Course Description</string>
+    <string name="add_course">Add Course</string>
+    <string name="read_all_courses">Read All Courses</string>
+    <string name="course_name">Course Name</string>
+    <string name="course_tracks">Course Tracks</string>
+    <string name="duration">Duration</string>
+    <string name="description">Description</string>
+</resources>
