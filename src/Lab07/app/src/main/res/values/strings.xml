@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lab07</string>
+    <string name="add_student">Add Student</string>
+    <string name="ex_9_11_2001">9/11/2001</string>
+    <string name="ex_john_smith">John Smith</string>
+    <string name="ex_id_john_smith">B2005853</string>
+    <string name="ex_id_class_m01">M01</string>
+    <string name="ex_male">Male</string>
+    <string name="ex_txt_not_completed">Not completed</string>
+    <string name="pick_date">Pick date</string>
+</resources>
