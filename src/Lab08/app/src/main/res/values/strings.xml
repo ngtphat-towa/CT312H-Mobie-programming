@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Task01</string>
+    <string name="enter_course_name">Enter course Name</string>
+    <string name="enter_course_duration">Enter Course Duration</string>
+    <string name="enter_course_tracks">Enter Course Tracks</string>
+    <string name="enter_course_description">Enter Course Description</string>
+    <string name="add_course">Add Course</string>
+</resources>

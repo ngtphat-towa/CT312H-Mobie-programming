@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/studentFormToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/design_default_color_on_primary"/>
+    <!--Edit text to enter course name-->
+    <EditText
+        android:id="@+id/idEdtCourseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/enter_course_name"
+        android:minHeight="48dp"
+        android:textColorHint="#546E7A"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <!--edit text to enter course duration-->
+    <EditText
+        android:id="@+id/idEdtCourseDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:autofillHints=""
+        android:hint="@string/enter_course_duration"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#546E7A" />
+
+    <!--edit text to display course tracks-->
+    <EditText
+        android:id="@+id/idEdtCourseTracks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:autofillHints=""
+        android:hint="@string/enter_course_tracks"
+        android:minHeight="48dp"
+        android:textColorHint="#546E7A"
+        android:inputType="text" />
+
+    <!--edit text for course description-->
+    <EditText
+        android:id="@+id/idEdtCourseDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:autofillHints=""
+        android:hint="@string/enter_course_description"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#546E7A" />
+
+    <!--button for adding new course-->
+    <Button
+        android:id="@+id/idBtnAddCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/add_course"
+        android:textAllCaps="false" />
+
+</LinearLayout>
