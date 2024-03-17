@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.excercise02"
+    namespace = "com.example.task02"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.excercise02"
+        applicationId = "com.example.task02"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -29,7 +29,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
