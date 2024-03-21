@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Lab10</string>
+    <string name="add_new_note">Add new note</string>
+    <string name="this_is_the_title">This is the title</string>
+    <string name="this_is_the_content">This is the content</string>
+    <string name="_8942">⋮</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="title">Title</string>
+    <string name="title_hint">Title</string>
+    <string name="enter_note_title_hint">Enter note title</string>
+    <string name="enter_note_content_hint">Enter note content</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="save_text">Save</string>
+    <string name="id_Hint">ID21</string>
+    <string name="content">Content</string>
+    <string name="edit_note">Edit note</string>
+    <string name="_12_20_am_may_12_2002">12:20 AM May 12, 2002</string>
+    <string name="Lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis molestie elit, vitae consectetur dolor placerat consequat. Nullam vel purus venenatis, tincidunt lorem sit amet, convallis enim. Quisque pharetra ante sed nulla venenatis, ut posuere magna semper. Duis hendrerit tellus at nibh imperdiet gravida. Ut sagittis ex mattis, suscipit nisi et, pretium odio. Sed vehicula ultricies justo, id efficitur sem. Fusce id sem dapibus tortor euismod consectetur. Nullam augue eros, vehicula non bibendum eget, volutpat sed turpis. Maecenas accumsan tortor vitae justo mattis, sit amet aliquam neque convallis. Aenean sagittis imperdiet consectetur. Nunc id venenatis massa. Proin dolor mauris, interdum ac risus nec, fermentum feugiat ligula. Quisque efficitur magna nec hendrerit fringilla. Nam varius luctus purus. Phasellus fringilla sagittis tortor id iaculis. Morbi euismod posuere velit, vehicula convallis tellus ultrices eget. Donec libero mauris, commodo non diam ac, congue tempus elit. Mauris at dolor non ante malesuada iaculis et quis massa. Duis vehicula dui dui, non fermentum erat pulvinar aliquam. Aliquam erat volutpat. Phasellus posuere nisi libero, id eleifend nunc pretium eget. Curabitur elementum enim et commodo sollicitudin. Etiam in feugiat lorem, sit amet pretium urna. Mauris vel odio ac libero imperdiet aliquam at in felis. Maecenas vel nulla laoreet, volutpat nisl ut, sagittis odio. Cras ac tellus aliquet quam interdum mattis at hendrerit arcu. Nullam ipsum mi, tristique vitae dolor in, mollis viverra massa. In vitae ornare ligula, vitae interdum lorem. Suspendisse sit amet libero nec nunc maximus ullamcorper ut vitae ex. Integer laoreet efficitur sem sit amet congue. Cras id purus ut dui luctus porttitor. Maecenas ut fermentum mi, ut finibus tortor. Praesent consequat mollis libero ac sagittis. Suspendisse purus augue, malesuada vitae quam quis, sodales tristique urna. In consectetur metus quis sem pretium, nec pulvinar tortor fringilla. Aenean pharetra dapibus egestas. Duis a dignissim nunc, dictum dictum ante. Pellentesque interdum sapien eget blandit interdum. Aliquam erat volutpat. Cras blandit tellus ut porttitor lobortis. Sed sollicitudin pulvinar sapien, id semper diam tempus vitae. Cras a arcu sagittis, finibus ante at, suscipit tellus. Curabitur consectetur maximus nisl in placerat. Sed tincidunt turpis et turpis luctus, non tempus eros dignissim. Morbi efficitur lobortis magna quis ultrices.</string>
+</resources>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditNoteActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/editToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/edit_note"
+        app:titleTextColor="@color/design_default_color_on_primary" />
+
+    <TextView
+        android:id="@+id/lbEditNote_Title"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="14dp"
+        android:text="@string/title_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editToolBar" />
+
+    <EditText
+        android:id="@+id/txtEditNote_Title"
+        style="@style/ThemeOverlay.Material3.TextInputEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:autofillHints=""
+        android:background="@drawable/outlined_input"
+        android:hint="@string/enter_note_title_hint"
+        android:inputType="textShortMessage"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbEditNote_Title" />
+
+    <TextView
+        android:id="@+id/lbEditNote_Content"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="14dp"
+        android:text="@string/content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEditNote_Title" />
+
+    <EditText
+        android:id="@+id/txtEditNote_Content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/outlined_input"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/enter_note_content_hint"
+        android:inputType="textMultiLine"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbEditNote_Content" />
+
+    <Button
+        android:id="@+id/btnCancelEdit"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="@string/cancel_text"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSaveEdit"
+        app:layout_constraintEnd_toStartOf="@+id/btnSaveEdit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnSaveEdit" />
+
+    <Button
+        android:id="@+id/btnSaveEdit"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/save_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnCancelEdit" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
