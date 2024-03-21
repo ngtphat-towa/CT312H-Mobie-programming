@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -57,29 +58,34 @@ public class EditNoteActivity extends AppCompatActivity {
         });
 
         btnSave.setOnClickListener(view -> {
-            // Get updated data from text fields
-            String title = txtTitle.getText().toString();
-            String content = txtContent.getText().toString();
+            try {
+                // Get updated data from text fields
+                String title = txtTitle.getText().toString();
+                String content = txtContent.getText().toString();
 
-            // Validate the data
-            if (title.isEmpty() || content.isEmpty()) {
-                Toast.makeText(EditNoteActivity.this, "Please enter all the data.", Toast.LENGTH_SHORT).show();
-                return;
+                // Validate the data
+                if (title.isEmpty() || content.isEmpty()) {
+                    Toast.makeText(EditNoteActivity.this, "Please enter all the data.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Update the note in the database
+                Note updatedNote = new Note();
+                updatedNote.setId(noteId);
+                updatedNote.setTitle(title);
+                updatedNote.setContent(content);
+
+                dataAccess.UpdateNote(noteId,updatedNote);
+
+                // Set result to indicate success and finish the activity
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("NoteSaved", true);
+                setResult(RESULT_OK, resultIntent);
+                finish();
             }
-
-            // Update the note in the database
-            Note updatedNote = new Note();
-            updatedNote.setId(noteId);
-            updatedNote.setTitle(title);
-            updatedNote.setContent(content);
-
-            dataAccess.UpdateNote(noteId,updatedNote);
-
-            // Set result to indicate success and finish the activity
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("NoteSaved", true);
-            setResult(RESULT_OK, resultIntent);
-            finish();
+            catch (Exception exception){
+                Log.d("DEBUG", "btnSave.setOnClickListener: "+ exception);
+            }
         });
     }
 
@@ -92,7 +98,7 @@ public class EditNoteActivity extends AppCompatActivity {
 
     private void initializeToolbar() {
         // toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.editToolBar);
+        Toolbar toolbar = findViewById(R.id.editToolBar);
         setSupportActionBar(toolbar);
 
         // add back arrow to toolbar

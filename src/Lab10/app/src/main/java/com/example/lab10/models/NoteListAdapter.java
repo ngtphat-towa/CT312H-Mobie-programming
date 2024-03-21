@@ -40,6 +40,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         // Set data holder
         holder.txtTitle.setText(note.getTitle());
         holder.txtContent.setText(note.getContent());
+        holder.txtCreatedDate.setText(DateUtils.formatDate(note.getCreatedDate()));
         holder.itemView.setOnLongClickListener(view -> {
             setPosition(position);
             return false;
@@ -73,11 +74,12 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView txtTitle, txtContent;
+        private final TextView txtTitle, txtContent, txtCreatedDate;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtTitle = itemView.findViewById(R.id.note_item_title);
             txtContent = itemView.findViewById(R.id.note_item_content);
+            txtCreatedDate = itemView.findViewById(R.id.note_item_created_date);
         }
 
     }

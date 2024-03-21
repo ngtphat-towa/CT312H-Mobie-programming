@@ -3,13 +3,16 @@ package com.example.lab10.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.Nullable;
+
+import java.util.Date;
 
 
 public class Note  implements Parcelable {
     private int id;
     private String title;
     private String content;
-
+    private Date createdDate;
     public Note() {
         // Default constructor
     }
@@ -18,12 +21,22 @@ public class Note  implements Parcelable {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.createdDate = new Date();
     }
+
+    public Note(int id, String title, String content,Date createdDate) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.createdDate = createdDate;
+    }
+
 
     protected Note(Parcel in) {
         id = in.readInt();
         title = in.readString();
         content = in.readString();
+        createdDate = new Date(in.readLong());
     }
 
     @Override
@@ -31,6 +44,7 @@ public class Note  implements Parcelable {
         dest.writeInt(id);
         dest.writeString(title);
         dest.writeString(content);
+        dest.writeLong(createdDate != null ? createdDate.getTime() : -1L);
     }
 
     @Override
@@ -72,5 +86,13 @@ public class Note  implements Parcelable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 }

@@ -10,15 +10,17 @@ import androidx.annotation.Nullable;
 import com.example.lab10.models.Note;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class SQLiteDataAccess extends SQLiteOpenHelper implements INoteRepository {
     private static final String DB_NAME = "NoteDB";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
     private static final String TABLE_NAME = "notes";
     private static final String ID_COL = "id";
     private static final String TITLE_COL = "title";
     private static final String CONTENT_COL = "content";
+    private static final String CREATED_DATE_COL = "created_date";
 
     public SQLiteDataAccess(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -29,7 +31,8 @@ public class SQLiteDataAccess extends SQLiteOpenHelper implements INoteRepositor
         String query = "CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TITLE_COL + " TEXT, "
-                + CONTENT_COL + " TEXT)";
+                + CONTENT_COL + " TEXT, "
+                + CREATED_DATE_COL + " INTEGER)";
         sqLiteDatabase.execSQL(query);
         Log.d("DATABASE", "DATABASE-CREATED");
         // **Sample data insertion (after table creation):**
@@ -37,8 +40,8 @@ public class SQLiteDataAccess extends SQLiteOpenHelper implements INoteRepositor
     }
     private void addSampleNotes(SQLiteDatabase sqLiteDatabase) {
         // Create some sample Note objects
-        Note note1 = new Note(1,"Grocery List", "Milk, Bread, Eggs");
-        Note note2 = new Note(2,"Important Meeting", "Discuss project deadlines with team.");
+        Note note1 = new Note(1,"Grocery List", "Milk, Bread, Eggs", new Date());
+        Note note2 = new Note(2,"Important Meeting", "Discuss project deadlines with team.",new Date());
 
         // Insert each sample note into the database
         for (Note note : new Note[]{note1, note2}) {
@@ -61,6 +64,7 @@ public class SQLiteDataAccess extends SQLiteOpenHelper implements INoteRepositor
         ContentValues values = new ContentValues();
         values.put(TITLE_COL, note.getTitle());
         values.put(CONTENT_COL, note.getContent());
+        values.put(CREATED_DATE_COL, new Date().getTime());
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
@@ -78,6 +82,7 @@ public class SQLiteDataAccess extends SQLiteOpenHelper implements INoteRepositor
                 note.setId(cursor.getInt(0));
                 note.setTitle(cursor.getString(1));
                 note.setContent(cursor.getString(2));
+                note.setCreatedDate(new Date(cursor.getLong(3)));
                 notes.add(note);
             } while (cursor.moveToNext());
         }
@@ -90,7 +95,7 @@ public class SQLiteDataAccess extends SQLiteOpenHelper implements INoteRepositor
     @Override
     public Note GetNoteById(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{ID_COL, TITLE_COL, CONTENT_COL}, ID_COL + "=?",
+        Cursor cursor = db.query(TABLE_NAME, new String[]{ID_COL, TITLE_COL, CONTENT_COL, CREATED_DATE_COL}, ID_COL + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
@@ -99,6 +104,7 @@ public class SQLiteDataAccess extends SQLiteOpenHelper implements INoteRepositor
             note.setId(cursor.getInt(0));
             note.setTitle(cursor.getString(1));
             note.setContent(cursor.getString(2));
+            note.setCreatedDate(new Date(cursor.getLong(3)));
             cursor.close();
             return note;
         }
