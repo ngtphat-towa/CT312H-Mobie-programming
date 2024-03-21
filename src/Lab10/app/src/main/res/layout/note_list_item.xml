@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:maxHeight="200dp"
         android:padding="12dp">
 
         <TextView
@@ -28,7 +29,7 @@
             android:id="@+id/note_item_content"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:text="@string/this_is_the_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

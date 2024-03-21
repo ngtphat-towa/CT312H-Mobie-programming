@@ -1,48 +1,62 @@
 package com.example.lab10;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.textfield.TextInputEditText;
+import com.example.lab10.data_access.SQLiteDataAccess;
+import com.example.lab10.models.Note;
 
 public class AddNewNoteActivity extends AppCompatActivity {
 
     EditText txtTitle, txtContent;
     Button btnSave, btnCancel;
+    SQLiteDataAccess dataAccess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_new_note);
        initializeToolbar();
        initializeViews();
        wireUpEventListener();
     }
 
     private void wireUpEventListener() {
-
         btnCancel.setOnClickListener(view -> {
-            txtTitle.setText("");
-            txtContent.setText("");
+            // Clear text fields and return to MainActivity without adding a new note
+            setResult(RESULT_CANCELED);
+            finish();
         });
+
         btnSave.setOnClickListener(view -> {
-            // Get data from controls
+            // Get data from text fields
             String title = txtTitle.getText().toString();
             String content = txtContent.getText().toString();
-            // Validate the data filled
-            if (title.isEmpty() & content.isEmpty()){
-                Toast.makeText(AddNewNoteActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
+
+            // Validate the data
+            if (title.isEmpty() || content.isEmpty()) {
+                Toast.makeText(AddNewNoteActivity.this, "Please enter all the data.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            // Init & call the database to call
-            // Create toast to display message
-            // Return back to main view
+
+            // Add the new note to the database
+            Note newNote = new Note();
+            newNote.setTitle(title);
+            newNote.setContent(content);
+
+            dataAccess.AddNote(newNote);
+
+            // Set result to indicate success and finish the activity
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("NoteSaved", true);
+            setResult(RESULT_OK, resultIntent);
+            finish();
         });
     }
 
@@ -51,10 +65,12 @@ public class AddNewNoteActivity extends AppCompatActivity {
         txtContent = findViewById(R.id.txtCreateNote_Content);
         btnSave = findViewById(R.id.btnSaveCreate);
         btnCancel = findViewById(R.id.btnCancelCreate);
+        // Data access
+        dataAccess = new SQLiteDataAccess(this);
     }
 
     private void initializeToolbar(){
-        setContentView(R.layout.activity_add_new_note);
+
         // toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.addNewToolBar);
         setSupportActionBar(toolbar);
@@ -64,5 +80,11 @@ public class AddNewNoteActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dataAccess.close();
     }
 }
