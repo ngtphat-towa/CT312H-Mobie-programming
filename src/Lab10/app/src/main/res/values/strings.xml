@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">Lab10</string>
     <string name="add_new_note">Add new note</string>
+    <string name="this_is_the_title">This is the title</string>
+    <string name="this_is_the_content">This is the content</string>
+    <string name="_8942">⋮</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="title">Title</string>
+    <string name="title_hint">Title</string>
+    <string name="enter_note_title_hint">Enter note title</string>
+    <string name="enter_note_content_hint">Enter note content</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="save_text">Save</string>
+    <string name="id_Hint">ID21</string>
+    <string name="content">Content</string>
+    <string name="edit_note">Edit note</string>
 </resources>
