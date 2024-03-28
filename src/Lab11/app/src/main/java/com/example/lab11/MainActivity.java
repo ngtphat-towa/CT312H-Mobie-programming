@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,11 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
     // creating a variable for our Database
     // Reference for Firebase.
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference, retrieveDataReference;
 
     // creating a variable for
     // our object class
     EmployeeInfo employeeInfo;
+    private TextView retrieveTV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +44,14 @@ public class MainActivity extends AppCompatActivity {
         employeeNameEdt = findViewById(R.id.idEdtEmployeeName);
         employeePhoneEdt = findViewById(R.id.idEdtEmployeePhoneNumber);
         employeeAddressEdt = findViewById(R.id.idEdtEmployeeAddress);
-
+        retrieveTV = findViewById(R.id.idTVRetrieveData);
         // below line is used to get the
         // instance of our FIrebase database.
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         // below line is used to get reference for our database.
         databaseReference = firebaseDatabase.getReference("EmployeeInfo");
+        retrieveDataReference = firebaseDatabase.getReference("Data");
 
         // initializing our object
         // class variable.
@@ -75,12 +78,15 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     // else call the method to add
                     // data to our database.
-                    addDatatoFirebase(name, phone, address);
+                    addDataToFirebase(name, phone, address);
                 }
             }
         });
+        // calling method
+        // for getting data.
+        getdata();
     }
-    private void addDatatoFirebase(String name, String phone, String address) {
+    private void addDataToFirebase(String name, String phone, String address) {
         // below 3 lines of code is used to set
         // data in our object class.
         employeeInfo.setEmployeeName(name);
@@ -106,6 +112,34 @@ public class MainActivity extends AppCompatActivity {
                 // if the data is not added or it is cancelled then
                 // we are displaying a failure toast message.
                 Toast.makeText(MainActivity.this, "Fail to add data " + error, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void getdata() {
+
+        // calling add value event listener method
+        // for getting the values from database.
+        retrieveDataReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // this method is call to get the realtime
+                // updates in the data.
+                // this method is called when the data is
+                // changed in our Firebase console.
+                // below line is for getting the data from
+                // snapshot of our database.
+                String value = snapshot.getValue(String.class);
+
+                // after getting the value we are setting
+                // our value to our text view in below line.
+                retrieveTV.setText(value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // calling on cancelled method when we receive
+                // any error or we are not able to get the data.
+                Toast.makeText(MainActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
     }
