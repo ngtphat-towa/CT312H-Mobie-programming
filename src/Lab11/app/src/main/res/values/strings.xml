@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Lab11</string>
+    <string name="enter_employee_name">Enter Employee Name</string>
+    <string name="enter_employee_phone_number">Enter employee phone number</string>
+    <string name="enter_employee_address">Enter employee address</string>
+    <string name="add_employee_details">Add employee details</string>
 </resources>

@@ -1,19 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/test_label"
-        android:layout_width="wrap_content"
+    <!--EditText for adding employee name-->
+    <EditText
+        android:id="@+id/idEdtEmployeeName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:hint="@string/enter_employee_name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--EditText for adding employee phone-->
+    <EditText
+        android:id="@+id/idEdtEmployeePhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEdtEmployeeName"
+        android:layout_margin="10dp"
+        android:hint="@string/enter_employee_phone_number"
+        android:importantForAutofill="no"
+        android:inputType="phone" />
+
+    <!--EditText for adding employee address-->
+    <EditText
+        android:id="@+id/idEdtEmployeeAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEdtEmployeePhoneNumber"
+        android:layout_margin="10dp"
+        android:hint="@string/enter_employee_address"
+        android:inputType="textPostalAddress" />
+
+    <!--Button for adding data to Firebase-->
+    <Button
+        android:id="@+id/idBtnSendData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEdtEmployeeAddress"
+        android:layout_margin="10dp"
+        android:text="@string/add_employee_details"
+        android:textAllCaps="false" />
+
+</RelativeLayout>
